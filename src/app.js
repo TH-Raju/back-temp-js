@@ -6,7 +6,6 @@ import cookieParser from "cookie-parser";
 import rootRouter from "./routes/index.js";
 import path from "path";
 import globalErrorHandler from "./middlewares/errorHandler.js";
-import { ejsRouter } from "./readEjs/index.js";
 import AppError from "./errors/AppError.js";
 import sendResponse from "./shared/sendResponse.js";
 import httpStatus from "http-status";
@@ -34,9 +33,6 @@ app.use(
 
 // Use root router for API routes
 app.use("/api/v1", rootRouter);
-
-//static
-app.use("/ejs", ejsRouter);
 
 // Default route
 app.get("/", (req, res) => {
